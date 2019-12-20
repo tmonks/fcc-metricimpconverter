@@ -24,7 +24,22 @@ module.exports = function (app) {
       var returnUnit = convertHandler.getReturnUnit(initUnit);
       var toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
       
-      //res.json
+    /*
+      initNum = 3.1;
+      initUnit = 'mi';
+      returnNum: 5.0000008;
+      returnUnit: 'km';
+      toString = '3.1 miles converts to 5.00002 kilometers';
+    */
+    
+      console.log("Input received: " + input);
+      res.json({
+        initNum,
+        initUnit,
+        returnNum,
+        returnUnit,
+        string: toString
+      })
     });
     
 };
