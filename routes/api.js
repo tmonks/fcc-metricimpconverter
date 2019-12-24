@@ -33,13 +33,25 @@ module.exports = function (app) {
     */
     
       console.log("Input received: " + input);
-      res.json({
-        initNum,
-        initUnit,
-        returnNum,
-        returnUnit,
-        string: toString
-      })
+    
+      if(!returnUnit && !returnNum) {
+        // res.json({"error": "invalid number and unit"});
+        res.send("invalid number and unit");
+      } else if(!returnUnit) {
+        // res.json({"error": "invalid unit"});
+        res.send("invalid unit");
+      } else if(!returnNum) {
+        // res.json({"error": "invalid number"});
+        res.send("invalid number");
+      } else {
+        res.json({
+          initNum,
+          initUnit,
+          returnNum,
+          returnUnit,
+          string: toString
+        });  
+      }
     });
     
 };

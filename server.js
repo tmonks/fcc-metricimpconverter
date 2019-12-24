@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 /* Use Helmet parent middleware, which includes protection from MIME sniffing & XSS */
 app.use(helmet());
 
+
 //Index page (static HTML)
 app.route('/')
   .get(function (req, res) {
