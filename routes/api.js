@@ -18,11 +18,10 @@ module.exports = function (app) {
   app.route('/api/convert')
     .get(function (req, res){
       var input = req.query.input;
+      console.log("Input received: " + input);
       var initNum = convertHandler.getNum(input);
       var initUnit = convertHandler.getUnit(input);
-      var returnNum = convertHandler.convert(initNum, initUnit);
-      var returnUnit = convertHandler.getReturnUnit(initUnit);
-      var toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
+      
       
     /*
       initNum = 3.1;
@@ -32,18 +31,19 @@ module.exports = function (app) {
       toString = '3.1 miles converts to 5.00002 kilometers';
     */
     
-      console.log("Input received: " + input);
-    
-      if(!returnUnit && !returnNum) {
-        // res.json({"error": "invalid number and unit"});
-        res.send("invalid number and unit");
-      } else if(!returnUnit) {
-        // res.json({"error": "invalid unit"});
-        res.send("invalid unit");
-      } else if(!returnNum) {
-        // res.json({"error": "invalid number"});
-        res.send("invalid number");
+      if(!initUnit && !initNum) {
+        res.json({"error": "invalid number and unit"});
+        // res.send("invalid number and unit");
+      } else if(!initUnit) {
+        res.json({"error": "invalid unit"});
+        // res.send("invalid unit");
+      } else if(!initNum) {
+        res.json({"error": "invalid number"});
+        // res.send("invalid number");
       } else {
+        var returnNum = convertHandler.convert(initNum, initUnit);
+        var returnUnit = convertHandler.getReturnUnit(initUnit);
+        var toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
         res.json({
           initNum,
           initUnit,

@@ -9,8 +9,8 @@
 function ConvertHandler() {
   
   this.getNum = function(input) {
-    //let match = input.match(/^[0-9./]+/);
-    let match = input.match(/^[0-9.]+\/?[0-9.]*(?=[a-z])/i)
+    // let match = input.match(/^[0-9.]+\/?[0-9.]*(?=[a-z])/i)
+    let match = input.match(/^[0-9]+(\.[0-9]+)?(\/[0-9]+(\.[0-9]+)?)?(?=[a-z])/i);
     // const [result] = input.match(/[A-Za-z]*$/);
     return match 
       ? eval(match[0]) 

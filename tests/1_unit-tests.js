@@ -14,6 +14,7 @@ var convertHandler = new ConvertHandler();
 
 suite('Unit Tests', function(){
   
+  // 6 Unit Tests for getNum
   suite('Function convertHandler.getNum(input)', function() {
     
     test('Whole number input', function(done) {
@@ -54,6 +55,7 @@ suite('Unit Tests', function(){
     
   });
   
+  // 2 Unit Tests for getUnit
   suite('Function convertHandler.getUnit(input)', function() {
     
     test('For Each Valid Unit Inputs - getUnit', function(done) {
@@ -73,6 +75,7 @@ suite('Unit Tests', function(){
     
   });
   
+  // 1 Unit Test for getReturnUnit
   suite('Function convertHandler.getReturnUnit(initUnit)', function() {
     
     test('For Each Valid Unit Inputs - getReturnUnit', function(done) {
@@ -86,6 +89,7 @@ suite('Unit Tests', function(){
     
   });  
   
+  // 1 Unit Test for spellOutUnit
   suite('Function convertHandler.spellOutUnit(unit)', function() {
     
     test('For Each Valid Unit Inputs spellOutUnit', function(done) {
@@ -101,6 +105,7 @@ suite('Unit Tests', function(){
     
   });
   
+  // 6 Unit Tests for convert
   suite('Function convertHandler.convert(num, unit)', function() {
     
     test('Gal to L', function(done) {
