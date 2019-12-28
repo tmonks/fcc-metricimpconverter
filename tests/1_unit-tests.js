@@ -14,7 +14,7 @@ var convertHandler = new ConvertHandler();
 
 suite('Unit Tests', function(){
   
-  // 6 Unit Tests for getNum
+  // Unit Tests for getNum (6)
   suite('Function convertHandler.getNum(input)', function() {
     
     test('Whole number input', function(done) {
@@ -55,13 +55,12 @@ suite('Unit Tests', function(){
     
   });
   
-  // 2 Unit Tests for getUnit
+  // Unit Tests for getUnit (2)
   suite('Function convertHandler.getUnit(input)', function() {
     
     test('For Each Valid Unit Inputs - getUnit', function(done) {
       var input = ['gal','l','mi','km','lbs','kg','GAL','L','MI','KM','LBS','KG'];
       input.forEach(function(ele) {
-        // console.log("Testing " + convertHandler.getUnit("3.1" + ele) + " is " + ele);
         assert.equal(convertHandler.getUnit("3.1" + ele), ele)
       });
       done();
@@ -75,7 +74,7 @@ suite('Unit Tests', function(){
     
   });
   
-  // 1 Unit Test for getReturnUnit
+  // Unit Test for getReturnUnit (1)
   suite('Function convertHandler.getReturnUnit(initUnit)', function() {
     
     test('For Each Valid Unit Inputs - getReturnUnit', function(done) {
@@ -89,23 +88,21 @@ suite('Unit Tests', function(){
     
   });  
   
-  // 1 Unit Test for spellOutUnit
+  // Unit Test for spellOutUnit (1)
   suite('Function convertHandler.spellOutUnit(unit)', function() {
     
     test('For Each Valid Unit Inputs spellOutUnit', function(done) {
       var input = ['gal', 'l', 'mi', 'km', 'lbs', 'kg'];
       var expect = ['gallons', 'liters', 'miles', 'kilometers', 'pounds', 'kilograms'];
       input.forEach(function(ele, i) {
-        //console.log("Testing " + convertHandler.spellOutUnit(ele) + " is " + expect[i]);
         assert.equal(convertHandler.spellOutUnit(ele), expect[i]);
       })
-      //see above example for hint
       done();
     });
     
   });
   
-  // 6 Unit Tests for convert
+  // Unit Tests for convert (6)
   suite('Function convertHandler.convert(num, unit)', function() {
     
     test('Gal to L', function(done) {

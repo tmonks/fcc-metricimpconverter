@@ -27,7 +27,7 @@ suite('Functional Tests', function() {
           assert.equal(res.status, 200);
           assert.equal(res.body.initNum, 10);
           assert.equal(res.body.initUnit, 'L');
-          assert.approximately(res.body.returnNum, 2.64172, 0.1);
+          assert.approximately(res.body.returnNum, 2.64172, 0.01);
           assert.equal(res.body.returnUnit, 'gal');
           done();
         });
@@ -38,7 +38,6 @@ suite('Functional Tests', function() {
           .get('/api/convert')
           .query({input: '32g'})
           .end(function(err, res) {
-            // console.log("Result of '32g' test: ", res.body);
             assert.equal(res.status, 200);
             assert.equal(res.text, "invalid unit");
             done();

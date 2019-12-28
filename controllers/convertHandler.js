@@ -9,20 +9,16 @@
 function ConvertHandler() {
   
   this.getNum = function(input) {
-    // let match = input.match(/^[0-9.]+\/?[0-9.]*(?=[a-z])/i)
     let match = input.match(/^[0-9]+(\.[0-9]+)?(\/[0-9]+(\.[0-9]+)?)?(?=[a-z])/i);
-    // const [result] = input.match(/[A-Za-z]*$/);
     return match 
-      ? eval(match[0]) 
+      ? eval(match[0]) // a valid number was provided, so evaluate and return it
       : input.match(/^[a-z]/i)
-        ? 1
-        : null;
+        ? 1 // no number was provided, default to 1
+        : null; // number was invalid
   };
   
   this.getUnit = function(input) {
-    // const [result] = input.match(/[A-Za-z]*$/);
     let match = input.match(/(gal|lbs|mi|l|kg|km)$/i);
-    
     return match ? match[0] : null;
   };
   
@@ -81,6 +77,7 @@ function ConvertHandler() {
         result = null;
     }
     
+    // round result to 5 decimal places
     return Math.round(result * 10**5) / 10**5;
   };
   
