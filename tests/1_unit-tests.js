@@ -43,7 +43,7 @@ suite('Unit Tests', function(){
     
     test('Invalid Input (double fraction)', function(done) {
       var input = "2/3/5lbs";
-      assert.isNull(convertHandler.getNum(input));
+      assert.equal(convertHandler.getNum(input), null);
       done();
     });
     
@@ -69,7 +69,7 @@ suite('Unit Tests', function(){
     
     test('Unknown Unit Input', function(done) {
       var input = "5.7feet";
-      assert.isNull(convertHandler.getUnit(input));
+      assert.equal(convertHandler.getUnit(input), null);
       done();
     });  
     

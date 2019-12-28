@@ -27,60 +27,29 @@ function ConvertHandler() {
   };
   
   this.getReturnUnit = function(initUnit) {
-    var result;
-    
-    switch (initUnit.toLowerCase()) {
-      case "gal":
-        result = "l";
-        break;
-      case "lbs":
-        result = "kg";
-        break;
-      case "mi":
-        result = "km";
-        break;
-      case "l":
-        result = "gal";
-        break;
-      case "kg":
-        result = "lbs";
-        break;
-      case "km":
-        result = "mi";
-        break;
-      default:
-        result = null;
+    const units = {
+      "gal": "l",
+      "lbs": "kg",
+      "mi": "km",
+      "l": "gal",
+      "kg": "lbs",
+      "km": "mi"
     }
-    return result;
+    
+    return units[initUnit.toLowerCase()] || null;
   };
 
   this.spellOutUnit = function(unit) {
-    var result;
-    
-    switch(unit.toLowerCase()) {
-      case "gal":
-        result = "gallons";
-        break;
-      case "lbs":
-        result = "pounds";
-        break;
-      case "mi":
-        result = "miles";
-        break;
-      case "l":
-        result = "liters";
-        break;
-      case "kg":
-        result = "kilograms";
-        break;
-      case "km":
-        result = "kilometers";
-        break;
-      default:
-        result = null;
+    const unitNames = { 
+      "gal": "gallons",
+      "lbs": "pounds",
+      "mi": "miles",
+      "l": "liters",
+      "kg": "kilograms",
+      "km": "kilometers"
     }
     
-    return result;
+    return unitNames[unit.toLowerCase()] || null;
   };
   
   this.convert = function(initNum, initUnit) {
